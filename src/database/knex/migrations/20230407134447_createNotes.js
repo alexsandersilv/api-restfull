@@ -7,8 +7,8 @@ exports.up = knex => knex.schema.createTable('notes', table => {
   table.text('title');
   table.text('description');
   table.integer('user_id').references('id').inTable('users');
-  table.timestamps('created_at').defaultTo(knex.fn.now());
-  table.timestamps('updated_at').defaultTo(knex.fn.now());
+  table.timestamp('created_at').default(knex.fn.now());
+  table.timestamp('updated_at').default(knex.fn.now());
 });
 
 /**
