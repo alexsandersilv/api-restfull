@@ -4,6 +4,7 @@ const AppError = require('./utils/AppError');
 
 require('./database/sqlite/migrations')();
 
+const cors = require('cors');
 const express = require('express');
 const routes = require('./routes');
 const uploadConfig = require('./configs/upload');
@@ -12,6 +13,7 @@ const app = express();
 
 app.use('/files', express.static(uploadConfig.UPLOADS_FOLDER))
 app.use(express.json());
+app.use(cors());
 app.use(routes);
 app.use((error, req, res, next) => {
   const isClientError = error instanceof AppError;
