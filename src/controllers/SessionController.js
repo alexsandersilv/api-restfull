@@ -26,7 +26,7 @@ class SessionController {
 
     return res.status(202).json({
       token,
-      ...user
+      user
     });
 
   }
