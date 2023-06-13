@@ -2,7 +2,7 @@ const knex = require('../database/knex');
 
 class TagsController {
   async index(req, res) {
-    const { user_id } = req.params;
+    const { id: user_id } = req.user;
 
     const tags = await knex('tags').where({ user_id });
 
