@@ -3,3 +3,5 @@
 
 # database
 /src/database/database.db
+
+.env
